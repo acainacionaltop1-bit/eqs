@@ -1,0 +1,293 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  font-family: 'Inter', system-ui, Avenir, Helvetica, Arial, sans-serif;
+}
+
+/* Custom animations */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+@keyframes money-float {
+  0%, 100% { transform: translateX(0px) translateY(0px) scale(1); }
+  25% { transform: translateX(3px) translateY(-2px) scale(1.05); }
+  50% { transform: translateX(-3px) translateY(-4px) scale(1.1); }
+  75% { transform: translateX(2px) translateY(-2px) scale(1.05); }
+}
+
+@keyframes money-sparkle {
+  0% { transform: scale(0.8); opacity: 0; }
+  50% { transform: scale(1.2); opacity: 1; }
+  100% { transform: scale(0.8); opacity: 0; }
+}
+
+/* Icon animations - Living icons */
+@keyframes icon-breathe {
+  0%, 100% { transform: scale(1) rotate(0deg); }
+  50% { transform: scale(1.05) rotate(1deg); }
+}
+
+@keyframes icon-pulse-glow {
+  0%, 100% { 
+    box-shadow: 0 0 20px rgba(34, 197, 94, 0.3);
+    transform: scale(1);
+  }
+  50% { 
+    box-shadow: 0 0 30px rgba(34, 197, 94, 0.6);
+    transform: scale(1.02);
+  }
+}
+
+@keyframes icon-wiggle {
+  0%, 100% { transform: rotate(0deg) translateX(0px); }
+  25% { transform: rotate(1deg) translateX(1px); }
+  50% { transform: rotate(-1deg) translateX(-1px); }
+  75% { transform: rotate(0.5deg) translateX(0.5px); }
+}
+
+@keyframes icon-bounce-subtle {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-2px); }
+}
+
+@keyframes icon-rotate-gentle {
+  0% { transform: rotate(0deg); }
+  25% { transform: rotate(1deg); }
+  50% { transform: rotate(0deg); }
+  75% { transform: rotate(-1deg); }
+  100% { transform: rotate(0deg); }
+}
+
+@keyframes icon-float-organic {
+  0%, 100% { transform: translateY(0px) translateX(0px) rotate(0deg); }
+  25% { transform: translateY(-1px) translateX(0.5px) rotate(0.5deg); }
+  50% { transform: translateY(-2px) translateX(0px) rotate(0deg); }
+  75% { transform: translateY(-1px) translateX(-0.5px) rotate(-0.5deg); }
+}
+
+/* Specific icon animations */
+@keyframes trending-up-bounce {
+  0%, 100% { transform: translateY(0px) scale(1); }
+  25% { transform: translateY(-3px) scale(1.05); }
+  50% { transform: translateY(-5px) scale(1.1); }
+  75% { transform: translateY(-2px) scale(1.05); }
+}
+
+@keyframes settings-spin {
+  0% { transform: rotate(0deg); }
+  25% { transform: rotate(90deg); }
+  50% { transform: rotate(180deg); }
+  75% { transform: rotate(270deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes settings-spin-fast {
+  0% { transform: rotate(0deg) scale(1); }
+  100% { transform: rotate(360deg) scale(1.1); }
+}
+
+@keyframes dollar-dance {
+  0%, 100% { transform: translateX(0px) scale(1) rotate(0deg); }
+  25% { transform: translateX(2px) scale(1.05) rotate(5deg); }
+  50% { transform: translateX(-2px) scale(1.1) rotate(-5deg); }
+  75% { transform: translateX(1px) scale(1.05) rotate(2deg); }
+}
+
+@keyframes trending-rocket {
+  0% { transform: translateY(0px) rotate(0deg) scale(1); }
+  100% { transform: translateY(-8px) rotate(5deg) scale(1.15); }
+}
+
+@keyframes dollar-glow-pulse {
+  0% { transform: scale(1) rotate(0deg); }
+  100% { transform: scale(1.2) rotate(10deg); }
+}
+
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slide-in-left {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slide-in-right {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.rotate-120 {
+  transform: rotate(120deg);
+}
+
+.rotate-240 {
+  transform: rotate(240deg);
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-money-float {
+  animation: money-float 2s ease-in-out infinite;
+}
+
+.animate-money-sparkle {
+  animation: money-sparkle 1.5s ease-in-out infinite;
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 0.8s ease-out;
+}
+
+.animate-slide-in-left {
+  animation: slide-in-left 0.8s ease-out;
+}
+
+.animate-slide-in-right {
+  animation: slide-in-right 0.8s ease-out;
+}
+
+/* Living icon animation classes */
+.animate-icon-breathe {
+  animation: icon-breathe 3s ease-in-out infinite;
+}
+
+.animate-icon-pulse-glow {
+  animation: icon-pulse-glow 2.5s ease-in-out infinite;
+}
+
+.animate-icon-wiggle {
+  animation: icon-wiggle 4s ease-in-out infinite;
+}
+
+.animate-icon-bounce-subtle {
+  animation: icon-bounce-subtle 2s ease-in-out infinite;
+}
+
+.animate-icon-rotate-gentle {
+  animation: icon-rotate-gentle 6s ease-in-out infinite;
+}
+
+.animate-icon-float-organic {
+  animation: icon-float-organic 5s ease-in-out infinite;
+}
+
+/* Specific icon animations */
+.animate-trending-up {
+  animation: trending-up-bounce 2s ease-in-out infinite;
+}
+
+.animate-settings-spin {
+  animation: settings-spin 4s linear infinite;
+}
+
+.animate-dollar-dance {
+  animation: dollar-dance 3s ease-in-out infinite;
+}
+
+.hover-settings-spin:hover .settings-icon {
+  animation: settings-spin-fast 0.8s linear infinite;
+}
+
+.hover-trending-rocket:hover .trending-icon {
+  animation: trending-rocket 0.6s ease-out infinite alternate;
+}
+
+.hover-dollar-glow:hover .dollar-icon {
+  animation: dollar-glow-pulse 0.5s ease-in-out infinite alternate;
+  filter: drop-shadow(0 0 10px #ffd700) hue-rotate(45deg) brightness(1.3);
+}
+
+.delay-200 { animation-delay: 0.2s; }
+.delay-300 { animation-delay: 0.3s; }
+.delay-500 { animation-delay: 0.5s; }
+.delay-700 { animation-delay: 0.7s; }
+.delay-800 { animation-delay: 0.8s; }
+.delay-1000 { animation-delay: 1s; }
+.delay-1500 { animation-delay: 1.5s; }
+
+.money-gold {
+  filter: hue-rotate(45deg) brightness(1.2);
+}
+
+body {
+  background: #000000;
+  color: #ffffff;
+}
+
+/* Typewriter effect with cursor */
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+/* Live Activity Ticker Animations */
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(200%); }
+}
+
+@keyframes progress {
+  0% { width: 0%; }
+  100% { width: 100%; }
+}
+
+.animate-shimmer {
+  animation: shimmer 3s ease-in-out infinite;
+}
+
+.animate-progress {
+  animation: progress 4s linear infinite;
+}
+
+@keyframes typewriter-blink {
+  0%, 50% { border-color: transparent; }
+  51%, 100% { border-color: currentColor; }
+}
+
+.typewriter-cursor {
+  animation: typewriter-blink 0.7s infinite;
+}
+
+/* Gradient border effect */
+.gradient-border {
+  position: relative;
+}
+
+.gradient-border::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  padding: 1px;
+  background: linear-gradient(135deg, rgba(34, 197, 94, 0.5), rgba(16, 185, 129, 0.5));
+  border-radius: inherit;
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+}
