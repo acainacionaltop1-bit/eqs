@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Criar Vídeo de Exemplo</title>
+</head>
+<body>
+    <canvas id="canvas" width="640" height="360" style="display: none;"></canvas>
+    
+    <script>
+        // Criar um vídeo de exemplo de 10 segundos
+        const canvas = document.getElementById('canvas');
+        const ctx = canvas.getContext('2d');
+        
+        const frames = [];
+        const fps = 24;
+        const duration = 10; // segundos
+        const totalFrames = fps * duration;
+        
+        // Criar frames
+        for (let i = 0; i < totalFrames; i++) {
+            // Limpar canvas
+            ctx.fillStyle = '#1a202c';
+            ctx.fillRect(0, 0, 640, 360);
+            
+            // Adicionar gradiente
+            const gradient = ctx.createLinearGradient(0, 0, 640, 360);
+            gradient.addColorStop(0, '#2b6cb0');
+            gradient.addColorStop(1, '#1a365d');
+            ctx.fillStyle = gradient;
+            ctx.fillRect(0, 0, 640, 360);
+            
+            // Adicionar texto
+            ctx.fillStyle = '#ffffff';
+            ctx.font = 'bold 48px Arial';
+            ctx.textAlign = 'center';
+            ctx.fillText('VÍDEO DE EXEMPLO R2', 320, 150);
+            
+            ctx.font = '32px Arial';
+            ctx.fillText('NextFund Platform', 320, 200);
+            
+            // Contador de tempo
+            const currentTime = (i / fps).toFixed(1);
+            ctx.font = '24px Arial';
+            ctx.fillText(`${currentTime}s`, 320, 250);
+            
+            // Círculo animado
+            const angle = (i / totalFrames) * Math.PI * 2;
+            ctx.beginPath();
+            ctx.arc(320 + Math.cos(angle) * 100, 180, 20, 0, Math.PI * 2);
+            ctx.fillStyle = '#48bb78';
+            ctx.fill();
+            
+            // Capturar frame
+            frames.push(ctx.getImageData(0, 0, 640, 360));
+        }
+        
+        console.log(`Criados ${frames.length} frames para vídeo de exemplo`);
+        
+        // Em uma implementação real, você converteria os frames para MP4
+        // Por simplicidade, vamos criar um Blob que simula um vídeo
+        const videoBlob = new Blob(['Vídeo de exemplo simulado'], { type: 'video/mp4' });
+        
+        // Fazer download do arquivo de exemplo
+        const url = URL.createObjectURL(videoBlob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'exemplo-video-nextfund.mp4';
+        a.click();
+        
+        URL.revokeObjectURL(url);
+    </script>
+</body>
+</html>
