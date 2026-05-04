@@ -29,33 +29,8 @@ export async function updateSession(request: NextRequest) {
     }
   )
 
-  const {
-    data: { user },
-  } = await supabase.auth.getUser()
-
-  // Rotas protegidas - redirecionar para login se não autenticado
-  const protectedRoutes = ['/home', '/missoes', '/perfil', '/afiliados', '/ranking', '/carreira', '/cupons', '/admin', '/saques']
-  const isProtectedRoute = protectedRoutes.some(route => 
-    request.nextUrl.pathname.startsWith(route)
-  )
-
-  if (isProtectedRoute && !user) {
-    const url = request.nextUrl.clone()
-    url.pathname = '/login'
-    return NextResponse.redirect(url)
-  }
-
-  // Se já logado e tentar acessar login/cadastro, redirecionar para home
-  const authRoutes = ['/login', '/cadastro']
-  const isAuthRoute = authRoutes.some(route => 
-    request.nextUrl.pathname === route
-  )
-
-  if (isAuthRoute && user) {
-    const url = request.nextUrl.clone()
-    url.pathname = '/home'
-    return NextResponse.redirect(url)
-  }
+  // Atualizar sessão sem redirecionar - autenticação é opcional
+  await supabase.auth.getUser()
 
   return supabaseResponse
 }
